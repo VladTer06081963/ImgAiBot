@@ -1,0 +1,42 @@
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="https://pnikolenko3d.netlify.app">Tabaco</a></li>
+          <li><a href="https://tabacoai-19733de2ea98.herokuapp.com/">AITabaco</a></li>
+           <li><a href="/">ImgTabaco</a></li>
+          <li><a href="https://tabacoai-19733de2ea98.herokuapp.com/user/pnikolenko">PNikolenko</a></li>
+        </ul>
+      </nav>
+      <h1>Tabaco Img World</h1>
+<p>вводите описание картинки и колличество до девяти штук.</p>
+    </header>
+<br>
+<form action='/' method='post'>
+  <input
+    type='text '
+    class='form-control mb-2'
+    placeholder='Enter img params'
+    required
+    name='prompt'
+  />
+
+  {{!-- <select name='size' class='form-control mb-2'>
+    <option value='256x256'>Small</option>
+    <option value='512x512'>Medium</option>
+    <option value='1024x1024'>Large</option>
+  </select>  --}}
+
+  <input type='number' class='form-control mb-2' name='number' value='1' />
+  {{!-- <button type='submit' class='btn btn-primery'>Generate</button> --}}
+   <input type='submit' class='form-control mb-2'></input>
+</form>
+
+{{#if Images}}
+  <div class='row'>
+    {{#each Images}}
+      <img src='{{this.url}}' class='img-fluid rounded' />
+    {{/each}}
+
+  </div>
+{{/if}}
