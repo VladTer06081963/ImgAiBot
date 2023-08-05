@@ -14,6 +14,7 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get('/', (_, res) => {
   res.render('index');
@@ -40,5 +41,8 @@ app.post('/', async (req, res) => {
       };
   }
 });
+const PORT = process.env.PORT || 3000;
 
-app.listen(5500, () => console.log('Server OK'));
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
