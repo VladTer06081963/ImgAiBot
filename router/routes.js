@@ -20,3 +20,4 @@ export const postHome = async (req, res) => {
     });
   }
 };
+console.log($`{ createImage }`);
