@@ -8,8 +8,7 @@
       {{! <li><a href="https://tabacoai-19733de2ea98.herokuapp.com/user/pnikolenko">PNikolenko</a></li> }}
     </ul>
   </nav>
-  <h1>Tabaco Img World</h1>
-  <p>вводите описание картинки и колличество до девяти штук.</p>
+  
 </header>
 <br />
 <form action='/' method='post'>
@@ -32,20 +31,19 @@
    <input type='submit' class='form-control mb-2'></input> 
 </form>
 
+<div class='center-images'>
 {{#if Images}}
-
-  <div class='center-images'>
     {{#each Images}}
-      <img src='{{this.url}}' class='img-fluid rounded' />
-      <button class='save-button' data-url='{{this.url}}'>Save</button>
+      <img src='{{this.url}}' class='img-fluid rounded save-image' data-url='{{this.url}}' />
     {{/each}}
-  </div>
-
 {{/if}}
-{{!-- <button class="save-button" data-url="{{this.url}}">Save</button> --}}
+</div>
 
-<script>
-  $('.save-button').on('click', function() {
+  <h1>Tabaco Img World</h1>
+  <p>вводите описание картинки и колличество до девяти штук.</p>
+
+{{!-- <script>
+  $('.save-image').on('click', function() {
     const imageUrl = $(this).data('url');
 
     $.ajax({
@@ -60,4 +58,27 @@
       }
     });
   });
+</script> --}}
+
+<script>
+$('.save-image').on('click', function() {
+  const imageUrl = $(this).attr('src');
+  // Сохраняем ссылку на элемент изображения
+  const imgElement = $(this);
+
+  $.ajax({
+    url: '/saveImage',
+    method: 'POST',
+    data: { url: imageUrl },
+    success: function(response) {
+      console.log('Image saved successfully');
+      // Изменение прозрачности изображения при успешном сохранении
+      imgElement.css('opacity', '0.5');
+    },
+    error: function(error) {
+      console.log('Failed to save image', error);
+    }
+  });
+});
 </script>
+

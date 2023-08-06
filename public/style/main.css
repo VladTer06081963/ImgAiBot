@@ -138,10 +138,10 @@ form select::-webkit-input-placeholder {
 
 /* button css */
 
-.save-button {
+/* .save-button {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   padding: 6px 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   border-radius: 6px;
@@ -161,4 +161,12 @@ form select::-webkit-input-placeholder {
   box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
     0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
+} */
+
+.save-image {
+  margin: 10px;
+}
+
+.save-image:hover {
+  cursor: pointer;
 }

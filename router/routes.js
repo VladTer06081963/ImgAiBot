@@ -143,6 +143,12 @@ export const saveImage = async (req, res) => {
     await downloadImage(imageUrl, savePath);
     imageCounter++;
 
+    // счетчик
+    // Если счетчик достиг максимального значения (например, 1000), сбросить его на ноль
+    if (imageCounter >= 20) {
+      imageCounter = 0;
+    }
+
     try {
       fs.writeFileSync(
         path.resolve(process.cwd(), 'imageCounter.json'),
